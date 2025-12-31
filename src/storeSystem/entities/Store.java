@@ -3,7 +3,7 @@ package storeSystem.entities;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Store {
+public final class Store {
     private ArrayList<Order> orders = new ArrayList<>();
 
     public void createOrder(LocalDateTime moment, int number, OrderStatus status){
@@ -23,7 +23,7 @@ public class Store {
     public void listOrders() {
 
         if (orders.isEmpty()) {
-            System.out.println("Nenhum pedido cadastrado.");
+            System.out.println("No orders registered..");
             return;
         }
 
