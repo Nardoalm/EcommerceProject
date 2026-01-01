@@ -58,7 +58,7 @@ public class Order {
     }
 
     public String showSummary(){
-        return "Summary of your Order:\n" +
+        return "Summary of order:\n" +
                 "Date: " +
                 getMoment() +
                 "\nStatus: " +

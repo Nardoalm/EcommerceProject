@@ -30,6 +30,7 @@ public class Main {
             System.out.println("4 - Show order");
             System.out.println("5 - List orders");
             System.out.println("6 - Change order status");
+            System.out.println("7 - Pay a order");
             System.out.println("0 - Leave");
             System.out.print("Option: ");
 
@@ -156,7 +157,24 @@ public class Main {
 
                     System.out.println("Status updated.");
                     break;
+                case 7:
+                    System.out.print("Order number: ");
+                    number = sc.nextInt();
+                    sc.nextLine();
 
+                    order = store.findOrderByNumber(number);
+                    if (order.calculateTotal() > 0) {
+                        System.out.printf("Total to pay: %.2f", order.calculateTotal());
+                        System.out.println("\nPay? (y/n)");
+                        String resp = sc.next();
+                        if (resp.equals("y")) {
+                            System.out.println("Order payed!");
+                        }
+                        order.setStatus(OrderStatus.PAID);
+                    } else {
+                        System.out.println("You cannot pay this, because your order do not have anything.");
+                        break;
+                    }
                 case 0:
                     System.out.println("Leaving...");
                     break;
