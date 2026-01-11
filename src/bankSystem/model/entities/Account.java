@@ -1,18 +1,21 @@
-package bankSystem.entities;
+package bankSystem.model.entities;
+
+import bankSystem.model.exception.DomainException;
 
 public class Account {
     private String holder;
     protected Double balance;
     private Integer number;
 
-    public Account(){
-    }
-
     public Account(String holder, Double balance, Integer number){
         super();
         this.holder = holder;
         this.number = number;
         this.balance = balance;
+    }
+
+    public Account() {
+        super();
     }
 
     public double getBalance() {
@@ -27,15 +30,10 @@ public class Account {
         return holder;
     }
 
-    public void setHolder(String holder) {
-        this.holder = holder;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public void withdraw(double amount){
+    public void withdraw(double amount) throws DomainException{
+        if (amount > balance){
+            throw new DomainException("Balance is insufficient.");
+        }
         balance -= amount + 5;
     }
 

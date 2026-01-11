@@ -12,10 +12,10 @@ public class Order {
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 
-    public Order(){
+    public Order() {
     }
 
-    public Order(LocalDateTime moment, int number, OrderStatus status){
+    public Order(LocalDateTime moment, int number, OrderStatus status) {
         this.moment = moment;
         this.number = number;
         this.status = status;
@@ -41,15 +41,15 @@ public class Order {
         this.status = status;
     }
 
-    public void addProduct(Product p){
-        if(status == OrderStatus.CANCELED || status == OrderStatus.SHIPPED){
+    public void addProduct(Product p) {
+        if (status == OrderStatus.CANCELED || status == OrderStatus.SHIPPED) {
             System.out.println("It is not possible to add products while the status is SENT/CANCELLED.");
             return;
         }
         products.add(p);
     }
 
-    public double calculateTotal(){
+    public double calculateTotal() {
         double sum = 0;
         for (Product product : products) {
             sum += product.getPrice();
@@ -57,7 +57,7 @@ public class Order {
         return sum;
     }
 
-    public String showSummary(){
+    public String showSummary() {
         return "Summary of order:\n" +
                 "Date: " +
                 getMoment() +

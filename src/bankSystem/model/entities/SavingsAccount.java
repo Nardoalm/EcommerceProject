@@ -1,4 +1,6 @@
-package bankSystem.entities;
+package bankSystem.model.entities;
+
+import bankSystem.model.exception.DomainException;
 
 public final class SavingsAccount extends Account{
     private double interestRate;
@@ -25,7 +27,8 @@ public final class SavingsAccount extends Account{
     }
 
     @Override
-    public void withdraw(double amount){
-        balance -= amount;
+    public void withdraw(double amount) throws DomainException{
+        super.withdraw(amount);
+        balance -= 5;
     }
 }

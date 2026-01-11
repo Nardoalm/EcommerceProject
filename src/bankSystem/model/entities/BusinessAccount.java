@@ -1,9 +1,11 @@
-package bankSystem.entities;
+package bankSystem.model.entities;
+
+import bankSystem.model.exception.DomainException;
 
 public class BusinessAccount extends Account{
     
     private double loanLimit;
-    
+
     public BusinessAccount(){
         super();
     }
@@ -32,7 +34,7 @@ public class BusinessAccount extends Account{
     }
 
     @Override
-    public void withdraw(double amount){
+    public void withdraw(double amount) throws DomainException{
         super.withdraw(amount);
         balance -= 2.0;
     }

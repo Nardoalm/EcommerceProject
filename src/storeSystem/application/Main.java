@@ -10,6 +10,7 @@ import storeSystem.entities.productsTypes.PhysicalProduct;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,10 +18,10 @@ public class Main {
     public static void main(String[] args) throws ParseException {
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Locale.setDefault(Locale.US);
         Store store = new Store();
 
         int option = -1;
-
         while (option != 0) {
 
             System.out.println();
@@ -30,14 +31,14 @@ public class Main {
             System.out.println("4 - Show order");
             System.out.println("5 - List orders");
             System.out.println("6 - Change order status");
-            System.out.println("7 - Pay a order");
+            System.out.println("7 - Pay an order");
             System.out.println("0 - Leave");
             System.out.print("Option: ");
 
             option = sc.nextInt();
             sc.nextLine();
 
-            switch (option) {
+        switch (option) {
 
                 case 1:
                     LocalDateTime moment = LocalDateTime.now();
