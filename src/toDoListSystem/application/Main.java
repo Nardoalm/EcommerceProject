@@ -4,6 +4,7 @@ import toDoListSystem.model.entities.Task;
 import toDoListSystem.model.entities.ToDoList;
 import toDoListSystem.model.exception.DomainException;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,6 +19,7 @@ public class Main {
             System.out.println("1 - Create a task");
             System.out.println("2 - Mark as done");
             System.out.println("3 - Delete a task");
+            System.out.println("4 - List tasks");
             option = sc.nextInt();
             sc.nextLine();
 
@@ -33,7 +35,9 @@ public class Main {
                     int id = random.nextInt(900000) + 100000;
                     System.out.println("ID: " + id);
 
-                    Task task = new Task(name, id, description);
+                    LocalDateTime now = LocalDateTime.now();
+
+                    Task task = new Task(name, id, description, now);
 
                     toDoList.createTask(task);
                     break;
@@ -64,9 +68,14 @@ public class Main {
                         System.out.println("Error: " + e.getMessage());
                     }
                     break;
+                case 4:
+                    System.out.println(toDoList.getTasks());
+                    break;
                 default:
                     System.out.print("Option invalid.");
+                    break;
             }
         }
+        sc.close();
     }
 }

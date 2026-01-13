@@ -29,4 +29,8 @@ public class ToDoList {
         }
         tasks.remove(toDelete);
     }
+
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
 }
