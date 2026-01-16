@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public final class Store {
-    private ArrayList<Order> orders = new ArrayList<>();
+    private final ArrayList<Order> orders = new ArrayList<>();
 
     public void createOrder(LocalDateTime moment, int number, OrderStatus status){
         Order o = new Order(moment, number, status);

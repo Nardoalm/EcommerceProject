@@ -24,7 +24,6 @@ public class Main {
         int option = -1;
         while (option != 0) {
 
-            System.out.println();
             System.out.println("1 - Create order");
             System.out.println("2 - Add physical product");
             System.out.println("3 - Add digital product");
@@ -182,6 +181,7 @@ public class Main {
 
                 default:
                     System.out.println("Invalid option.");
+                    break;
             }
         }
 
